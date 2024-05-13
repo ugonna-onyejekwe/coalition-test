@@ -1,0 +1,215 @@
+nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 10px 0;
+  z-index: 1000;
+  transition: 0.4s ease;
+
+  &.active {
+    background: #fff;
+    box-shadow: 0 0 5px grey;
+  }
+
+  .backdrop {
+    display: none;
+  }
+
+  .container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+
+    .menu_btn {
+      display: none;
+    }
+    .logo {
+      min-width: 100px;
+      width: 120px;
+    }
+
+    .navigation_section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+
+      .navLinks {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        a {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          text-transform: capitalize;
+          font-size: 13px;
+          font-weight: 600;
+          color: var(--text_color_dark);
+          text-decoration: none;
+          padding: 10px 15px;
+          border-radius: 30px;
+          transition: 0.4s ease;
+
+          &.isactive,
+          &:hover {
+            background: #01f0d0;
+          }
+
+          .icon {
+            width: 15px;
+          }
+        }
+      }
+
+      .userSection {
+        display: flex;
+        align-items: center;
+
+        .user_wrapper {
+          display: flex;
+          align-items: center;
+          padding-right: 10px;
+          margin-right: 10px;
+          border-right: 1px solid grey;
+          gap: 5px;
+
+          img {
+            width: 30px;
+          }
+
+          .txt_con {
+            h5 {
+              text-transform: capitalize;
+            }
+            p {
+              font-size: 10px;
+            }
+          }
+        }
+
+        .icon_wrapper {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .menu_btn {
+        display: block;
+        cursor: pointer;
+
+        &.menu {
+          font-size: 20px;
+          padding-right: 10px;
+        }
+      }
+
+      .navigation_section {
+        position: fixed;
+        right: -110%;
+        top: 0;
+        flex-direction: column-reverse;
+        background: #fff;
+        box-shadow: 0 0 5px grey;
+        height: 100vh;
+        justify-content: left;
+        padding: 80px 20px 20px 20px;
+        align-items: unset;
+        width: 300px;
+        transition: 0.7s ease;
+        opacity: 0;
+        z-index: 2;
+
+        &.active {
+          right: 0;
+          opacity: 1;
+        }
+
+        .userSection {
+          display: flex;
+          align-items: center;
+
+          .user_wrapper {
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid rgb(196, 191, 191);
+            gap: 5px;
+
+            img {
+              width: 50px;
+            }
+
+            .txt_con {
+              h5 {
+                text-transform: capitalize;
+                font-size: 15px;
+              }
+              p {
+                font-size: 13px;
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+
+        .navLinks {
+          flex-direction: column;
+          align-items: unset;
+          margin-top: 20px;
+          gap: 10px;
+        }
+
+        .menu_btn {
+          display: block;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          height: 30px;
+          width: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #f4f0fe;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .backdrop {
+      display: block;
+      position: fixed;
+      background: black;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      pointer-events: none;
+      transition: 0.4s ease;
+      opacity: 0;
+
+      &.active {
+        pointer-events: all;
+        opacity: 0.4;
+      }
+    }
+  }
+}
